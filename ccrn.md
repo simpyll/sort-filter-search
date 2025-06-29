@@ -36,8 +36,13 @@ ce-requirements:
     – 10 Category B (Leadership)
     – 10 Category C (Professional)
     – 20 elective from any category
-fees**                 | **Initial Exam**: $255 (AACN member) / $370 (non-member)<br>**Retest**: $170 / $285<br>**Renewal by CERPs**: $150 / $230<br>**Renewal by Exam**: $180 / $285 |
-| **Key Deadlines**        | Apply anytime after eligibility verified; Renewal opens 4 months before expiration; 90-day grace period post-expiry |
-| **Official Link**        | [CCRN (Adult) – AACN](https://www.aacn.org/certification/get-certified/ccrn-adult) |
-  
+fees:
+  - Initial Exam: $255 (AACN member) / $370 (non-member)
+  - Retest: $170 / $285
+  - Renewal by CERPs: $150 / $230
+  - Renewal by Exam: $180 / $285
+key-deadlines:
+  - Apply anytime after eligibility verified
+  - Renewal opens 4 months before expiration
+  - 90-day grace period post-expiry
 ---
