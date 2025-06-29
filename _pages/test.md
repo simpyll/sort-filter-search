@@ -1,5 +1,5 @@
 ---
 title: Testing 123
 city: Tulsa
-permalink: /test
+permalink: {{ site.baseurl }}/test
 ---
