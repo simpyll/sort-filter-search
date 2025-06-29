@@ -2,6 +2,7 @@
 layout: page
 title: CCRN (Adult)
 organization: AACN
+permalink: /ccrn
 credential: Critical Care Registered Nurse
 fee: $250 (member), $365 (non-member)
 renewal: Every 3 years with 100 CEUs or retake
