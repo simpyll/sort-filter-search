@@ -4,4 +4,3 @@ include:
 collections:
   pages:
     output: true
-    permalink: /sort-filter-search/:title
