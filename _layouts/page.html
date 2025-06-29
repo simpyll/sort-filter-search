@@ -1,147 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | Nursing Certifications</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-  <style>
-    body {
-      background: #f8f9fa;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .container {
-      max-width: 800px;
-      margin-top: 60px;
-      padding-bottom: 80px;
-    }
-    h2 {
-      margin-top: 2rem;
-      border-bottom: 2px solid #dee2e6;
-      padding-bottom: 0.5rem;
-    }
-    .breadcrumb {
-      background: none;
-      padding: 0;
-      margin-bottom: 2rem;
-    }
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-    footer {
-      background: #343a40;
-      color: white;
-      padding: 1rem 0;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-    }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-  <a href="/" class="btn btn-outline-primary back-btn">← Home</a>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #fdfdfd;
+        color: #333;
+      }
 
-  <div class="container bg-white shadow rounded p-4">
+      header {
+        background: #0077cc;
+        padding: 1rem;
+        color: white;
+      }
 
-    <nav class="breadcrumb">
-      <a class="breadcrumb-item" href="/">Home</a>
-      <span class="breadcrumb-item active">{{ page.title }}</span>
-    </nav>
+      .home-button {
+        background: #ffffff;
+        color: #0077cc;
+        border: 1px solid #ffffff;
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        font-weight: bold;
+        text-decoration: none;
+      }
 
-    <h1 class="mb-4">{{ page.title }}</h1>
+      main {
+        flex: 1;
+        padding: 2rem 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+      }
 
-    <p><strong>Credential:</strong> {{ page.credential }}</p>
-    <p><strong>Full Name:</strong> {{ page.full-name }}</p>
-    <p><strong>Organization:</strong> {{ page.organization }}</p>
-    <p><strong>Certifying Body:</strong> {{ page.certifying-body }}</p>
-    <p><strong>Official Page:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
 
-    <h2>Description</h2>
-    <p>{{ page.description }}</p>
+      h2 {
+        color: #0077cc;
+        font-size: 1.25rem;
+        margin-top: 2rem;
+      }
 
-    {% if page.specialty %}
-    <h2>Specialty Areas</h2>
-    <ul>
-      {% for s in page.specialty %}
-        <li>{{ s }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      ul {
+        padding-left: 1.2rem;
+      }
 
-    {% if page.eligibility-requirements %}
-    <h2>Eligibility Requirements</h2>
-    <ul>
-      {% for r in page.eligibility-requirements %}
-        <li>{{ r }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+      }
 
-    {% if page.clinical-hours %}
-    <h2>Clinical Hours</h2>
-    <ul>
-      {% for ch in page.clinical-hours %}
-        <li>{{ ch }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      @media (max-width: 600px) {
+        main {
+          padding: 1rem 0.5rem;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
 
-    {% if page.exam-format-and-duration %}
-    <h2>Exam Format and Duration</h2>
-    <ul>
-      {% for e in page.exam-format-and-duration %}
-        <li>{{ e }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+  <body>
+    <header>
+      <a href="/" class="home-button">← Home</a>
+    </header>
 
-    {% if page.renewal-cycle-and-methods %}
-    <h2>Renewal Cycle and Methods</h2>
-    <p><strong>Cycle:</strong> {{ page.renewal-cycle-and-methods.cycle }}</p>
-    <ul>
-      {% for method in page.renewal-cycle-and-methods.pathways %}
-        <li><strong>{{ method.title }}</strong>: {{ method.details }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+    <main>
+      <h1>{{ page.title }}</h1>
+      <p>{{ page.description }}</p>
 
-    {% if page.ce-requirements %}
-    <h2>Continuing Education (CE) Requirements</h2>
-    <p>{{ page.ce-requirements.total }}</p>
-    <ul>
-      {% for c in page.ce-requirements.breakdown %}
-        <li>{{ c }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      {% if page.link %}
+        <p><strong>Official Site:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+      {% endif %}
 
-    {% if page.fees %}
-    <h2>Fees</h2>
-    <ul>
-      {% for f in page.fees %}
-        <li>{{ f }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      {% if page.specialty %}
+        <h2>Specialty</h2>
+        <ul>
+          {% for item in page.specialty %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-    {% if page.key-deadlines %}
-    <h2>Key Deadlines</h2>
-    <ul>
-      {% for d in page.key-deadlines %}
-        <li>{{ d }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
+      {% if page.eligibility-requirements %}
+        <h2>Eligibility Requirements</h2>
+        <ul>
+          {% for req in page.eligibility-requirements %}
+            <li>{{ req }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-  </div>
+      {% if page.clinical-hours %}
+        <h2>Clinical Hours</h2>
+        <ul>
+          {% for ch in page.clinical-hours %}
+            <li>{{ ch }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-  <footer>
-    <p>&copy; {{ "now" | date: "%Y" }} Nursing Certifications</p>
-  </footer>
+      {% if page.exam-format-and-duration %}
+        <h2>Exam Format and Duration</h2>
+        <ul>
+          {% for item in page.exam-format-and-duration %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
-</body>
+      {% if page.renewal-cycle-and-methods %}
+        <h2>Renewal Cycle and Methods</h2>
+        <ul>
+          {% for item in page.renewal-cycle-and-methods %}
+            {% if item contains ':' %}
+              <li><strong>{{ item | split: ':' | first }}:</strong> {{ item | split: ':' | last }}</li>
+            {% else %}
+              <li>{{ item }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if page.ce-requirements %}
+        <h2>Continuing Education (CE) Requirements</h2>
+        {% for ce in page.ce-requirements %}
+          <p>{{ ce }}</p>
+        {% endfor %}
+      {% endif %}
+
+      {% if page.fees %}
+        <h2>Fees</h2>
+        <ul>
+          {% for fee in page.fees %}
+            <li>{{ fee }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if page.key-deadlines %}
+        <h2>Key Deadlines</h2>
+        <ul>
+          {% for deadline in page.key-deadlines %}
+            <li>{{ deadline }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </main>
+
+    <footer>
+      &copy; {{ 'now' | date: "%Y" }} Nursing Certifications
+    </footer>
+  </body>
 </html>
