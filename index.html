@@ -1,59 +1,120 @@
-<!-- Bootstrap CDN -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List.js Filter Cards</title>
 
+  <!-- Bootstrap 3 CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<link rel="stylesheet" href="main.css">
+  <!-- Custom Modern Styling -->
+  <style>
+    body {
+      background-color: #f9f9f9;
+      padding: 30px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .form-inline {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .form-inline .form-group {
+      margin-right: 10px;
+    }
+
+    .list .panel {
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .panel-body {
+      font-size: 16px;
+    }
+
+    .btn {
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
 <section>
   <div id="hacker-list">
     <div class="form-inline">
-      <!-- The search class allows List.js to search through the list -->
       <div class="form-group">
-        <input type="text" placeholder="Search" class="search form-control"/>
+        <input type="text" placeholder="Search" class="search form-control" />
       </div>
-      
-      <!-- The sort class allows List.js to sort the list depending on the value of the data-sort attribute assigned to the element -->
       <div class="form-group">
-        <span class="sort btn btn-default" data-sort="name">Sort by Name</span>
-        <span class="sort btn btn-default" data-sort="city">Sort by City</span>
+        <span class="sort btn btn-primary" data-sort="name">Sort by Name</span>
+        <span class="sort btn btn-primary" data-sort="city">Sort by City</span>
       </div>
-      
-      <!-- The filter buttons -->
       <div class="form-group">
-        <span id="filter" class="btn btn-default">Show People in Edmonton (Filter)</span>
-        <span id="removeFilters" class="btn btn-default">Remove Filters</span>
+        <span id="filter" class="btn btn-success">Show Edmonton</span>
+        <span id="removeFilters" class="btn btn-danger">Remove Filters</span>
       </div>
     </div>
-    
-    <ul class="list">
-      <li>
-        <h4 class="name">Abraham</h4>
-        <p class="city">Stockholm</p>
+
+    <ul class="list row">
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Abraham</h4>
+            <p class="city">Stockholm</p>
+          </div>
+        </div>
       </li>
-      <li>
-        <h4 class="name">Jonas</h4>
-        <p class="city">Berlin</p>
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Jonas</h4>
+            <p class="city">Berlin</p>
+          </div>
+        </div>
       </li>
-      <li>
-        <h4 class="name">Bob</h4>
-        <p class="city">Edmonton</p>
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Bob</h4>
+            <p class="city">Edmonton</p>
+          </div>
+        </div>
       </li>
-      <li>
-        <h4 class="name">Hulk</h4>
-        <p class="city">Calgary</p>
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Hulk</h4>
+            <p class="city">Calgary</p>
+          </div>
+        </div>
       </li>
-      <li>
-        <h4 class="name">Daniel</h4>
-        <p class="city">New York</p>
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Daniel</h4>
+            <p class="city">New York</p>
+          </div>
+        </div>
       </li>
-      <li>
-        <h4 class="name">Susan</h4>
-        <p class="city">Edmonton</p>
+      <li class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4 class="name">Susan</h4>
+            <p class="city">Edmonton</p>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- List.js CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script> 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script> -->
-<script type="text/javascript" src="main.js"></script>
+<!-- List.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
