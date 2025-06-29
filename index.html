@@ -59,8 +59,20 @@
       </div>
     </div>
 
-    <!-- People Cards List -->
+        <!-- People Cards List -->
     <div class="row list">
+    {% for post in site.posts %}
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=abraham" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">{{ post.title }}</h5>
+               <p class="card-text city">[Read More]({{ post.url }})</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
       <div class="col-md-4">
         <div class="card">
           <img src="https://i.pravatar.cc/300?u=abraham" class="card-img-top" alt="Avatar">
