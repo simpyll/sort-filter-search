@@ -33,11 +33,11 @@ renewal-cycle-and-methods:
   cycle: Every 3 years
   pathways:
     - title: Direct Care Pathway
-      details: "432 clinical hours (12/month) + 100 CERPs (60 Cat A, 10 Cat B, 10 Cat C, 20 elective)"
+      details: 432 clinical hours (12/month) + 100 CERPs (60 Cat A, 10 Cat B, 10 Cat C, 20 elective)
     - title: Knowledge Professional Pathway
-      details: "432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)"
+      details: 432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)
     - title: Tele-Critical Care Pathway
-      details: "1,750 tele/direct care hours in 2 years (875 in last year)"
+      details: 1,750 tele/direct care hours in 2 years (875 in last year)
 
 ce-requirements:
   total: "100 Synergy CERPs"
