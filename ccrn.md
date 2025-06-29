@@ -17,7 +17,7 @@ specialty:
 eligibility-requirements:
   - RN/APRN license
   - Unencumbered license
-  - Clinical Hours:
+clinical-hours:
     - Option 1 – 1,750 hours direct critical care in past 2 years (875 in the last year)
     - Option 2 – 2,000 hours in past 5 years (144 in the last year)
 exam-format-and-duration:
