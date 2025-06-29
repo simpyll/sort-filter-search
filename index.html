@@ -64,6 +64,7 @@
         <!-- People Cards List -->
     <div class="row list">
     {% for page in site.html_pages %}
+      {% unless page.url == "/" %}
   <div class="col-md-4">
     <div class="card">
       <img src="https://i.pravatar.cc/300?u={{ post.title | slugify }}" class="card-img-top" alt="Avatar">
@@ -74,6 +75,7 @@
       </div>
     </div>
   </div>
+  {% endunless %}
 {% endfor %}
 
       <div class="col-md-4">
