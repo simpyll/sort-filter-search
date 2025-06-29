@@ -1,7 +1,3 @@
 baseurl: /sort-filter-search
 include:
   - _pages
-collections:
-  pages:
-    output: true
-    permalink: :permalink
