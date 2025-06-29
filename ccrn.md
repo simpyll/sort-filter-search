@@ -23,13 +23,16 @@ clinical-hours:
 exam-format-and-duration:
   - 175 total MCQs (150 scored)
   - 3 hours computer-based via PSI
-  - pass rate: 83 correct responses minimum
+  - pass rate:
+    - 83 correct responses minimum
 renewal-cycle-and-methods:
   - Every 3 years
   - Direct Care Pathway:
     - 432 clinical hours (12/month) + 100 CERPs (60 Cat A, 10 Cat B, 10 Cat C, 20 elective)
-  - Knowledge Professional Pathway: 432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)
-  - Tele-Critical Care Pathway: 1,750 tele/direct care hours in 2 years (875 in last year)
+  - Knowledge Professional Pathway:
+    - 432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)
+  - Tele-Critical Care Pathway:
+    - 1,750 tele/direct care hours in 2 years (875 in last year)
 ce-requirements:
   100 Synergy CERPs:
     – 60 Category A (Clinical)
@@ -37,10 +40,14 @@ ce-requirements:
     – 10 Category C (Professional)
     – 20 elective from any category
 fees:
-  - Initial Exam: $255 (AACN member) / $370 (non-member)
-  - Retest: $170 / $285
-  - Renewal by CERPs: $150 / $230
-  - Renewal by Exam: $180 / $285
+  - Initial Exam:
+    - $255 (AACN member) / $370 (non-member)
+  - Retest:
+    - $170 / $285
+  - Renewal by CERPs:
+    - $150 / $230
+  - Renewal by Exam:
+    - $180 / $285
 key-deadlines:
   - Apply anytime after eligibility verified
   - Renewal opens 4 months before expiration
