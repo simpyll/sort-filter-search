@@ -1,6 +1,7 @@
 ---
 layout: page
 title: CCRN (Adult)
+permalink: /sort-filter-search/ccrn
 organization: AACN
 credential: Critical Care Registered Nurse
 fee: $250 (member), $365 (non-member)
