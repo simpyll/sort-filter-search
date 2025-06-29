@@ -6,202 +6,229 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <style>
     :root {
-      --primary: #004080;
-      --accent: #007bff;
-      --bg: #f4f7fa;
-      --card-bg: #ffffff;
-      --text: #333333;
-      --muted: #777;
+      --primary: #1a1a1a;
+      --accent: #0056b3;
+      --background: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --max-width: 840px;
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
       margin: 0;
-      background-color: var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background-color: var(--background);
       color: var(--text);
+      line-height: 1.6;
+      padding-top: 3.5rem;
     }
 
     .container {
-      max-width: 860px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      color: var(--accent);
-      margin-top: 2rem;
-      border-bottom: 2px solid var(--bg);
-      padding-bottom: 0.3rem;
-    }
-
-    h3 {
-      color: var(--primary);
-      margin-top: 1.5rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    ul li {
-      margin-bottom: 0.4rem;
-    }
-
-    .meta p {
-      margin: 0.2rem 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
-      font-weight: bold;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1.2rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+    }
+
     .tag {
       display: inline-block;
-      background: var(--accent);
-      color: white;
+      background: #efefef;
+      color: #333;
       padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      margin-right: 0.5rem;
+      border-radius: 16px;
+      margin-right: 0.4rem;
       font-size: 0.85rem;
     }
 
-    .section {
-      margin-bottom: 2rem;
+    .meta p {
+      margin: 0.3rem 0;
+      color: var(--muted);
+    }
+
+    .home-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.9rem;
+      background: #f3f3f3;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      z-index: 1000;
+    }
+
+    .breadcrumbs {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 1rem 0;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      .home-link {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="/" class="home-link">← Home</a>
+
   <div class="container">
-    <div class="card">
-      <h1>{{ page.title }}</h1>
-
-      <div class="meta">
-        <p><strong>Credential:</strong> {{ page.credential }}</p>
-        <p><strong>Full Name:</strong> {{ page["full Name"] }}</p>
-        <p><strong>Organization:</strong> {{ page.organization }}</p>
-        <p><strong>Certifying Body:</strong> {{ page["certifying-body"] }}</p>
-        <p><strong>Fee:</strong> {{ page.fee }}</p>
-        <p><strong>Renewal:</strong> {{ page.renewal }}</p>
-      </div>
-
-      <div class="section">
-        <h2>Description</h2>
-        <p>{{ page.description }}</p>
-      </div>
-
-      <div class="section">
-        <h2>Specialty Areas</h2>
-        {% for tag in page.specialty %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-
-      <div class="section">
-        <h2>Eligibility Requirements</h2>
-        <ul>
-          {% for item in page.eligibility-requirements %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-
-        {% if page.clinical-hours %}
-          <h3>Clinical Hours</h3>
-          <ul>
-            {% for item in page.clinical-hours %}
-              <li>{{ item }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
-
-      <div class="section">
-        <h2>Exam Format and Duration</h2>
-        <ul>
-          {% for item in page.exam-format-and-duration %}
-            {% if item contains 'pass rate' %}
-              <li><strong>Pass Rate:</strong>
-                <ul>
-                  {% for rate in page.exam-format-and-duration['pass rate'] %}
-                    <li>{{ rate }}</li>
-                  {% endfor %}
-                </ul>
-              </li>
-            {% else %}
-              <li>{{ item }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Renewal Cycle and Methods</h2>
-        <ul>
-          {% for item in page.renewal-cycle-and-methods %}
-            {% if item contains 'Pathway' %}
-              <li><strong>{{ item | split: ':' | first }}</strong>:
-                <ul>
-                  {% assign subitems = item | split: ':' | last | strip %}
-                  {% if subitems != '' %}
-                    <li>{{ subitems }}</li>
-                  {% endif %}
-                </ul>
-              </li>
-            {% else %}
-              <li>{{ item }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Continuing Education (CE) Requirements</h2>
-        {% for req_title in page.ce-requirements %}
-          <p><strong>{{ req_title }}</strong></p>
-        {% endfor %}
-      </div>
-
-      <div class="section">
-        <h2>Fees</h2>
-        <ul>
-          {% for fee in page.fees %}
-            {% assign label = fee[0] %}
-            {% assign value = fee[1] %}
-            <li><strong>{{ label }}:</strong> {{ value }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Key Deadlines</h2>
-        <ul>
-          {% for deadline in page.key-deadlines %}
-            <li>{{ deadline }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <p>
-        <a href="{{ page.link }}" target="_blank" rel="noopener">Official CCRN Certification Page →</a>
-      </p>
+    <div class="breadcrumbs">
+      <a href="/">Home</a> › <span>{{ page.title }}</span>
     </div>
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="meta">
+      <p><strong>Credential:</strong> {{ page.credential }}</p>
+      <p><strong>Full Name:</strong> {{ page["full Name"] }}</p>
+      <p><strong>Organization:</strong> {{ page.organization }}</p>
+      <p><strong>Certifying Body:</strong> {{ page["certifying-body"] }}</p>
+      <p><strong>Fee:</strong> {{ page.fee }}</p>
+      <p><strong>Renewal:</strong> {{ page.renewal }}</p>
+    </div>
+
+    <h2>Description</h2>
+    <p>{{ page.description }}</p>
+
+    <h2>Specialty Areas</h2>
+    {% for tag in page.specialty %}
+      <span class="tag">{{ tag }}</span>
+    {% endfor %}
+
+    <h2>Eligibility Requirements</h2>
+    <ul>
+      {% for item in page.eligibility-requirements %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    {% if page.clinical-hours %}
+      <h3>Clinical Hours</h3>
+      <ul>
+        {% for item in page.clinical-hours %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <h2>Exam Format and Duration</h2>
+    <ul>
+      {% for item in page.exam-format-and-duration %}
+        {% if item contains 'pass rate' %}
+          <li><strong>Pass Rate:</strong>
+            <ul>
+              {% for rate in page.exam-format-and-duration['pass rate'] %}
+                <li>{{ rate }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li>{{ item }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <h2>Renewal Cycle and Methods</h2>
+    <ul>
+      {% for item in page.renewal-cycle-and-methods %}
+        {% if item contains 'Pathway' %}
+          <li><strong>{{ item | split: ':' | first }}</strong>:
+            <ul>
+              {% assign path = item | split: ':' | last | strip %}
+              {% if path != '' %}
+                <li>{{ path }}</li>
+              {% endif %}
+            </ul>
+          </li>
+        {% else %}
+          <li>{{ item }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <h2>Continuing Education (CE) Requirements</h2>
+    {% for req in page.ce-requirements %}
+      <p>{{ req }}</p>
+    {% endfor %}
+
+    <h2>Fees</h2>
+    <ul>
+      {% for item in page.fees %}
+        <li><strong>{{ item[0] }}:</strong> {{ item[1] }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Key Deadlines</h2>
+    <ul>
+      {% for item in page.key-deadlines %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    <p>
+      <a href="{{ page.link }}" target="_blank" rel="noopener">
+        Official CCRN Certification Page →
+      </a>
+    </p>
+
+    <footer>
+      &copy; {{ site.title }} {{ site.time | date: '%Y' }}
+    </footer>
   </div>
 </body>
 </html>
