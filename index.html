@@ -64,16 +64,17 @@
         <!-- People Cards List -->
     <div class="row list">
     {% for page in site.pages %}
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://i.pravatar.cc/300?u=abraham" class="card-img-top" alt="Avatar">
-          <div class="card-body">
-            <h5 class="card-title name">{{ page.title }}</h5>
-               <p class="card-text city">[Read More]({{ post.url }})</p>
-          </div>
-        </div>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="https://i.pravatar.cc/300?u={{ post.title | slugify }}" class="card-img-top" alt="Avatar">
+      <div class="card-body">
+        <h5 class="card-title name">{{ page.title }}</h5>
+        <p class="card-text city">{{ page.city }}</p>
+        <a href="{{ page.url }}" class="btn btn-sm btn-outline-primary">Read More</a>
       </div>
-    {% endfor %}
+    </div>
+  </div>
+{% endfor %}
 
       <div class="col-md-4">
         <div class="card">
