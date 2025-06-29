@@ -3,78 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #004080;
+      margin-top: 0;
+    }
+    h2 {
+      color: #0056b3;
+      margin-top: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.2rem;
+    }
+    h3 {
+      margin-top: 1.5rem;
+      color: #006;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    ul li {
+      margin-bottom: 0.4rem;
+    }
+    p {
+      line-height: 1.6;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .meta {
+      background-color: #eef2f5;
+      padding: 1rem;
+      border-left: 4px solid #0077cc;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+    .meta p {
+      margin: 0.2rem 0;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
+
+    <div class="meta">
       <p><strong>Credential:</strong> {{ page.credential }}</p>
-      <p><strong>Certifying Body:</strong> {{ page.certifying-body }}</p>
+      <p><strong>Full Name:</strong> {{ page["full Name"] }}</p>
       <p><strong>Organization:</strong> {{ page.organization }}</p>
-      <p><strong>Full Name:</strong> {{ page.full Name }}</p>
-    </header>
+      <p><strong>Certifying Body:</strong> {{ page["certifying-body"] }}</p>
+      <p><strong>Fee:</strong> {{ page.fee }}</p>
+      <p><strong>Renewal:</strong> {{ page.renewal }}</p>
+    </div>
 
-    <section>
-      <h2>Description</h2>
-      <p>{{ page.description }}</p>
+    <h2>Description</h2>
+    <p>{{ page.description }}</p>
 
-      <h2>Specialty Areas</h2>
+    <h2>Specialty Areas</h2>
+    <ul>
+      {% for item in page.specialty %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>Eligibility Requirements</h2>
+    <ul>
+      {% for item in page.eligibility-requirements %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+
+    {% if page.clinical-hours %}
+      <h3>Clinical Hours</h3>
       <ul>
-        {% for item in page.specialty %}
+        {% for item in page.clinical-hours %}
           <li>{{ item }}</li>
         {% endfor %}
       </ul>
+    {% endif %}
 
-      <h2>Eligibility Requirements</h2>
-      <ul>
-        {% for req in page.eligibility-requirements %}
-          {% if req contains 'Option' %}
-            <li><strong>{{ req }}</strong></li>
-          {% else %}
-            <li>{{ req }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+    <h2>Exam Format and Duration</h2>
+    <ul>
+      {% for item in page.exam-format-and-duration %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
 
-      <h2>Exam Format and Duration</h2>
-      <ul>
-        {% for item in page.exam-format-and-duration %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
+    <h2>Renewal Cycle and Methods</h2>
+    <ul>
+      {% for item in page.renewal-cycle-and-methods %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
 
-      <h2>Renewal Cycle and Methods</h2>
-      <ul>
-        {% for method in page.renewal-cycle-and-methods %}
-          <li>{{ method }}</li>
-        {% endfor %}
-      </ul>
+    <h2>Continuing Education (CE) Requirements</h2>
+    <ul>
+      {% for item in page.ce-requirements %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
 
-      <h2>Continuing Education (CE) Requirements</h2>
-      <ul>
-        {% for item in page.ce-requirements %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
+    <h2>Fees</h2>
+    <ul>
+      {% for item in page.fees %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
 
-      <h2>Fees</h2>
-      <ul>
-        {% for fee in page.fees %}
-          <li>{{ fee }}</li>
-        {% endfor %}
-      </ul>
+    <h2>Key Deadlines</h2>
+    <ul>
+      {% for item in page.key-deadlines %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
 
-      <h2>Key Deadlines</h2>
-      <ul>
-        {% for item in page.key-deadlines %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
-
-      <p><a href="{{ page.link }}" target="_blank">Official CCRN (Adult) Certification Page →</a></p>
-    </section>
+    <p>
+      <a href="{{ page.link }}" target="_blank" rel="noopener">
+        View Official CCRN (Adult) Certification Page →
+      </a>
+    </p>
   </div>
 </body>
 </html>
