@@ -2,119 +2,154 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>List.js Filter Cards</title>
+  <title>People Directory</title>
 
-  <!-- Bootstrap 3 CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom Modern Styling -->
   <style>
     body {
-      background-color: #f9f9f9;
+      background-color: #f8f9fa;
       padding: 30px;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
 
-    .form-inline {
+    .search-bar {
       margin-bottom: 20px;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .btn-group .btn {
+      min-width: 130px;
+    }
+
+    .list .col {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .form-inline .form-group {
-      margin-right: 10px;
-    }
-
-    .list .panel {
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .panel-body {
-      font-size: 16px;
-    }
-
-    .btn {
-      border-radius: 5px;
     }
   </style>
 </head>
 <body>
 
-<section>
+<div class="container">
   <div id="hacker-list">
-    <div class="form-inline">
-      <div class="form-group">
-        <input type="text" placeholder="Search" class="search form-control" />
+    <!-- Search + Sort + Filter Controls -->
+    <div class="row search-bar align-items-center g-2 mb-4">
+      <div class="col-sm-4">
+        <input type="text" placeholder="Search..." class="search form-control" />
       </div>
-      <div class="form-group">
-        <span class="sort btn btn-primary" data-sort="name">Sort by Name</span>
-        <span class="sort btn btn-primary" data-sort="city">Sort by City</span>
-      </div>
-      <div class="form-group">
-        <span id="filter" class="btn btn-success">Show Edmonton</span>
-        <span id="removeFilters" class="btn btn-danger">Remove Filters</span>
+      <div class="col-sm-8 text-end btn-group">
+        <button class="sort btn btn-primary" data-sort="name">Sort by Name</button>
+        <button class="sort btn btn-primary" data-sort="city">Sort by City</button>
+        <button id="filter" class="btn btn-success">Show Edmonton</button>
+        <button id="removeFilters" class="btn btn-danger">Remove Filters</button>
       </div>
     </div>
 
-    <ul class="list row">
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Abraham</h4>
-            <p class="city">Stockholm</p>
+    <!-- People Cards List -->
+    <div class="row list">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=abraham" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Abraham</h5>
+            <p class="card-text city">Stockholm</p>
           </div>
         </div>
-      </li>
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Jonas</h4>
-            <p class="city">Berlin</p>
-          </div>
-        </div>
-      </li>
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Bob</h4>
-            <p class="city">Edmonton</p>
-          </div>
-        </div>
-      </li>
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Hulk</h4>
-            <p class="city">Calgary</p>
-          </div>
-        </div>
-      </li>
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Daniel</h4>
-            <p class="city">New York</p>
-          </div>
-        </div>
-      </li>
-      <li class="col-sm-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h4 class="name">Susan</h4>
-            <p class="city">Edmonton</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
+      </div>
 
-<!-- List.js -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=jonas" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Jonas</h5>
+            <p class="card-text city">Berlin</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=bob" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Bob</h5>
+            <p class="card-text city">Edmonton</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=hulk" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Hulk</h5>
+            <p class="card-text city">Calgary</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=daniel" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Daniel</h5>
+            <p class="card-text city">New York</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://i.pravatar.cc/300?u=susan" class="card-img-top" alt="Avatar">
+          <div class="card-body">
+            <h5 class="card-title name">Susan</h5>
+            <p class="card-text city">Edmonton</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- List.js CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
-<script src="main.js"></script>
+
+<!-- Your Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var options = {
+      valueNames: ['name', 'city']
+    };
+
+    var hackerList = new List('hacker-list', options);
+
+    var filterBtn = document.getElementById("filter");
+    var removeBtn = document.getElementById("removeFilters");
+
+    filterBtn.addEventListener("click", function () {
+      hackerList.filter(function (item) {
+        return item.values().city === "Edmonton";
+      });
+    });
+
+    removeBtn.addEventListener("click", function () {
+      hackerList.filter(); // reset filter
+    });
+  });
+</script>
 
 </body>
 </html>
