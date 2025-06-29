@@ -15,62 +15,91 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        background-color: #fdfdfd;
-        color: #333;
+        background-color: #f3f4f6;
+        color: #111827;
       }
 
       header {
-        background: #0077cc;
+        background: #1f2937;
         padding: 1rem;
         color: white;
+        display: flex;
+        align-items: center;
       }
 
       .home-button {
-        background: #ffffff;
-        color: #0077cc;
-        border: 1px solid #ffffff;
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        font-weight: bold;
+        background: #3b82f6;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 6px;
         text-decoration: none;
+        font-weight: bold;
+        transition: background 0.2s ease-in-out;
+      }
+
+      .home-button:hover {
+        background: #2563eb;
       }
 
       main {
         flex: 1;
-        padding: 2rem 1rem;
-        max-width: 800px;
+        padding: 2rem;
+        max-width: 900px;
         margin: 0 auto;
         width: 100%;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       }
 
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         margin-bottom: 1rem;
+        color: #1f2937;
       }
 
       h2 {
-        color: #0077cc;
-        font-size: 1.25rem;
+        color: #2563eb;
+        font-size: 1.5rem;
         margin-top: 2rem;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 0.3rem;
       }
 
       ul {
-        padding-left: 1.2rem;
+        padding-left: 1.5rem;
+        line-height: 1.6;
+      }
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
 
       footer {
-        background: #333;
+        background: #1f2937;
         color: white;
         text-align: center;
         padding: 1rem;
+        font-size: 0.9rem;
       }
 
       @media (max-width: 600px) {
         main {
-          padding: 1rem 0.5rem;
+          padding: 1.5rem 1rem;
         }
+
         h1 {
-          font-size: 1.5rem;
+          font-size: 2rem;
         }
       }
     </style>
@@ -129,20 +158,18 @@
         <h2>Renewal Cycle and Methods</h2>
         <ul>
           {% for item in page.renewal-cycle-and-methods %}
-            {% if item contains ':' %}
-              <li><strong>{{ item | split: ':' | first }}:</strong> {{ item | split: ':' | last }}</li>
-            {% else %}
-              <li>{{ item }}</li>
-            {% endif %}
+            <li>{{ item }}</li>
           {% endfor %}
         </ul>
       {% endif %}
 
       {% if page.ce-requirements %}
         <h2>Continuing Education (CE) Requirements</h2>
-        {% for ce in page.ce-requirements %}
-          <p>{{ ce }}</p>
-        {% endfor %}
+        <ul>
+          {% for ce in page.ce-requirements %}
+            <li>{{ ce }}</li>
+          {% endfor %}
+        </ul>
       {% endif %}
 
       {% if page.fees %}
