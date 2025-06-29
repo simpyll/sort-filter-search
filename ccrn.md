@@ -30,8 +30,13 @@ renewal-cycle-and-methods:
     - 432 clinical hours (12/month) + 100 CERPs (60 Cat A, 10 Cat B, 10 Cat C, 20 elective)
   - Knowledge Professional Pathway: 432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)
   - Tele-Critical Care Pathway: 1,750 tele/direct care hours in 2 years (875 in last year)
-| **CE Requirements**      | 100 Synergy CERPs:<br>– 60 Category A (Clinical)<br>– 10 Category B (Leadership)<br>– 10 Category C (Professional)<br>– 20 elective from any category |
-| **Fees**                 | **Initial Exam**: $255 (AACN member) / $370 (non-member)<br>**Retest**: $170 / $285<br>**Renewal by CERPs**: $150 / $230<br>**Renewal by Exam**: $180 / $285 |
+ce-requirements:
+  100 Synergy CERPs:
+    – 60 Category A (Clinical)
+    – 10 Category B (Leadership)
+    – 10 Category C (Professional)
+    – 20 elective from any category
+fees**                 | **Initial Exam**: $255 (AACN member) / $370 (non-member)<br>**Retest**: $170 / $285<br>**Renewal by CERPs**: $150 / $230<br>**Renewal by Exam**: $180 / $285 |
 | **Key Deadlines**        | Apply anytime after eligibility verified; Renewal opens 4 months before expiration; 90-day grace period post-expiry |
 | **Official Link**        | [CCRN (Adult) – AACN](https://www.aacn.org/certification/get-certified/ccrn-adult) |
   
