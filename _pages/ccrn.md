@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CCRN (Adult)
+title: CCRN
 organization: AACN
 permalink: /sort-filter-search/ccrn
 credential: Critical Care Registered Nurse
