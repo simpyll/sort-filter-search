@@ -26,7 +26,7 @@ exam-format-and-duration:
   - pass rate: 83 correct responses minimum
 renewal-cycle-and-methods:
   - Every 3 years
-  - Direct Care Pathway
+  - Direct Care Pathway:
     - 432 clinical hours (12/month) + 100 CERPs (60 Cat A, 10 Cat B, 10 Cat C, 20 elective)
   - Knowledge Professional Pathway: 432 hours (clinical or non-direct) + 100 CERPs (80 Cat A, 10 Cat B, 10 Cat C)
   - Tele-Critical Care Pathway: 1,750 tele/direct care hours in 2 years (875 in last year)
