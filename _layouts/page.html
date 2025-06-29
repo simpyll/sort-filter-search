@@ -1,198 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{ page.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      color: #111827;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #1f2937;
+    }
+    summary {
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    details {
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 0.25em 0.75em;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      background-color: #f3f4f6;
+      color: #6b7280;
+      margin-top: 2rem;
+    }
+    .home-button {
+      display: inline-block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: 600;
+    }
+    .breadcrumb {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="home-button"><i class="fas fa-arrow-left"></i> Home</a>
+    <div class="breadcrumb">
+      <i class="fas fa-certificate"></i> Certification &gt; {{ page.title }}
+    </div>
+    <h1><i class="fas fa-user-nurse"></i> {{ page.title }}</h1>
+    <p><strong>Credential:</strong> {{ page.credential }} <span class="badge">{{ page.organization }}</span></p>
+    <p><strong>Certifying Body:</strong> {{ page.certifying-body }}</p>
+    <p><strong>Link:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+    <p>{{ page.description }}</p><details open>
+  <summary><i class="fas fa-stethoscope"></i> Specialty Areas</summary>
+  <ul>
+    {% for item in page.specialty %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</details>
 
-      body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background-color: #f3f4f6;
-        color: #111827;
-      }
+<details>
+  <summary><i class="fas fa-id-card"></i> Eligibility Requirements</summary>
+  <ul>
+    {% for item in page.eligibility-requirements %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</details>
 
-      header {
-        background: #1f2937;
-        padding: 1rem;
-        color: white;
-        display: flex;
-        align-items: center;
-      }
+<details>
+  <summary><i class="fas fa-clock"></i> Clinical Hours</summary>
+  <ul>
+    {% for item in page.clinical-hours %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</details>
 
-      .home-button {
-        background: #3b82f6;
-        color: white;
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.2s ease-in-out;
-      }
+<details>
+  <summary><i class="fas fa-laptop"></i> Exam Format and Duration</summary>
+  <ul>
+    {% for item in page.exam-format-and-duration %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</details>
 
-      .home-button:hover {
-        background: #2563eb;
-      }
+<details>
+  <summary><i class="fas fa-sync"></i> Renewal Cycle and Methods</summary>
+  <ul>
+    {% for item in page.renewal-cycle-and-methods %}<li>{{ item }}</li>{% endfor %}
+  </ul>
+</details>
 
-      main {
-        flex: 1;
-        padding: 2rem;
-        max-width: 900px;
-        margin: 0 auto;
-        width: 100%;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      }
+<details>
+  <summary><i class="fas fa-graduation-cap"></i> Continuing Education (CE) Requirements</summary>
+  <ul>
+    {% for line in page.ce-requirements %}<li>{{ line }}</li>{% endfor %}
+  </ul>
+</details>
 
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #1f2937;
-      }
+<details>
+  <summary><i class="fas fa-dollar-sign"></i> Fees</summary>
+  <ul>
+    {% for line in page.fees %}<li>{{ line }}</li>{% endfor %}
+  </ul>
+</details>
 
-      h2 {
-        color: #2563eb;
-        font-size: 1.5rem;
-        margin-top: 2rem;
-        border-bottom: 2px solid #e5e7eb;
-        padding-bottom: 0.3rem;
-      }
+<details>
+  <summary><i class="fas fa-calendar-check"></i> Key Deadlines</summary>
+  <ul>
+    {% for line in page.key-deadlines %}<li>{{ line }}</li>{% endfor %}
+  </ul>
+</details>
 
-      ul {
-        padding-left: 1.5rem;
-        line-height: 1.6;
-      }
-
-      li {
-        margin-bottom: 0.5rem;
-      }
-
-      a {
-        color: #2563eb;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      footer {
-        background: #1f2937;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 600px) {
-        main {
-          padding: 1.5rem 1rem;
-        }
-
-        h1 {
-          font-size: 2rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-      <a href="/" class="home-button">← Home</a>
-    </header>
-
-    <main>
-      <h1>{{ page.title }}</h1>
-      <p>{{ page.description }}</p>
-
-      {% if page.link %}
-        <p><strong>Official Site:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
-      {% endif %}
-
-      {% if page.specialty %}
-        <h2>Specialty</h2>
-        <ul>
-          {% for item in page.specialty %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.eligibility-requirements %}
-        <h2>Eligibility Requirements</h2>
-        <ul>
-          {% for req in page.eligibility-requirements %}
-            <li>{{ req }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.clinical-hours %}
-        <h2>Clinical Hours</h2>
-        <ul>
-          {% for ch in page.clinical-hours %}
-            <li>{{ ch }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.exam-format-and-duration %}
-        <h2>Exam Format and Duration</h2>
-        <ul>
-          {% for item in page.exam-format-and-duration %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.renewal-cycle-and-methods %}
-        <h2>Renewal Cycle and Methods</h2>
-        <ul>
-          {% for item in page.renewal-cycle-and-methods %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.ce-requirements %}
-        <h2>Continuing Education (CE) Requirements</h2>
-        <ul>
-          {% for ce in page.ce-requirements %}
-            <li>{{ ce }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.fees %}
-        <h2>Fees</h2>
-        <ul>
-          {% for fee in page.fees %}
-            <li>{{ fee }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-
-      {% if page.key-deadlines %}
-        <h2>Key Deadlines</h2>
-        <ul>
-          {% for deadline in page.key-deadlines %}
-            <li>{{ deadline }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </main>
-
-    <footer>
-      &copy; {{ 'now' | date: "%Y" }} Nursing Certifications
-    </footer>
-  </body>
+  </div>
+  <footer>
+    &copy; {{ site.time | date: '%Y' }} Nursing Certifications
+  </footer>
+</body>
 </html>
