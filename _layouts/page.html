@@ -109,9 +109,12 @@
 </details>
 
 <details open>
-  <summary><i class="fas fa-sync"></i> Renewal Cycle and Methods</summary>
+  <summary><i class="fas fa-sync-alt"></i> Renewal Cycle and Methods</summary>
   <ul>
-    {% for item in page.renewal-cycle-and-methods %}<li>{{ item }}</li>{% endfor %}
+    <li><strong>Cycle:</strong> {{ page.renewal-cycle-and-methods.cycle }}</li>
+    {% for item in page.renewal-cycle-and-methods.pathways %}
+      <li><strong>{{ item.title }}:</strong> {{ item.details }}</li>
+    {% endfor %}
   </ul>
 </details>
 
