@@ -1,259 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Nursing Certifications</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <style>
-    :root {
-      --primary: #003366;
-      --accent: #2b75d6;
-      --background: #f4f6f8;
-      --card: #ffffff;
-      --text: #1c1c1e;
-      --muted: #6c757d;
-      --tag-bg: #e6f0ff;
-    }
-
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.7;
+      background: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
     }
-
     .container {
-      max-width: 840px;
-      margin: 0 auto;
-      background: var(--card);
-      padding: 2.5rem 2rem;
-      margin-top: 5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      max-width: 800px;
+      margin-top: 60px;
+      padding-bottom: 80px;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
     h2 {
-      font-size: 1.35rem;
       margin-top: 2rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.3rem;
-      color: var(--accent);
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.5rem;
     }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1.5rem;
-      color: var(--primary);
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin-bottom: 2rem;
     }
-
-    ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
     }
-
-    ul li {
-      margin-bottom: 0.4rem;
-    }
-
-    .meta p {
-      margin: 0.2rem 0;
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-block;
-      background: var(--tag-bg);
-      color: var(--primary);
-      padding: 0.25rem 0.7rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin: 0.3rem 0.4rem 0 0;
-    }
-
-    a {
-      color: var(--accent);
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: #003366;
-    }
-
-    .home-link {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      font-size: 0.9rem;
-      background: var(--card);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      text-decoration: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      transition: background 0.2s ease, transform 0.1s ease;
-    }
-
-    .home-link:hover {
-      background: #e9eef5;
-      transform: translateY(-1px);
-    }
-
-    .breadcrumbs {
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      color: var(--muted);
-    }
-
-    .breadcrumbs a {
-      color: var(--muted);
-    }
-
     footer {
-      margin-top: 4rem;
+      background: #343a40;
+      color: white;
+      padding: 1rem 0;
       text-align: center;
-      font-size: 0.9rem;
-      color: var(--muted);
-      padding: 1.5rem 0 1rem;
-      border-top: 1px solid #ddd;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-
-      .container {
-        padding: 1.5rem 1rem;
-        margin-top: 4rem;
-      }
-
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .home-link {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-      }
+      position: fixed;
+      width: 100%;
+      bottom: 0;
     }
   </style>
 </head>
 <body>
-  <a href="/" class="home-link">← Home</a>
 
-  <div class="container">
-    <div class="breadcrumbs">
-      <a href="/">Home</a> › <span>{{ page.title }}</span>
-    </div>
+  <a href="/" class="btn btn-outline-primary back-btn">← Home</a>
 
-    <h1>{{ page.title }}</h1>
+  <div class="container bg-white shadow rounded p-4">
 
-    <div class="meta">
-      <p><strong>Credential:</strong> {{ page.credential }}</p>
-      <p><strong>Full Name:</strong> {{ page["full Name"] }}</p>
-      <p><strong>Organization:</strong> {{ page.organization }}</p>
-      <p><strong>Certifying Body:</strong> {{ page["certifying-body"] }}</p>
-      <p><strong>Fee:</strong> {{ page.fee }}</p>
-      <p><strong>Renewal:</strong> {{ page.renewal }}</p>
-    </div>
+    <nav class="breadcrumb">
+      <a class="breadcrumb-item" href="/">Home</a>
+      <span class="breadcrumb-item active">{{ page.title }}</span>
+    </nav>
+
+    <h1 class="mb-4">{{ page.title }}</h1>
+
+    <p><strong>Credential:</strong> {{ page.credential }}</p>
+    <p><strong>Full Name:</strong> {{ page.full-name }}</p>
+    <p><strong>Organization:</strong> {{ page.organization }}</p>
+    <p><strong>Certifying Body:</strong> {{ page.certifying-body }}</p>
+    <p><strong>Official Page:</strong> <a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
 
     <h2>Description</h2>
     <p>{{ page.description }}</p>
 
+    {% if page.specialty %}
     <h2>Specialty Areas</h2>
-    {% for tag in page.specialty %}
-      <span class="tag">{{ tag }}</span>
-    {% endfor %}
-
-    <h2>Eligibility Requirements</h2>
     <ul>
-      {% for item in page.eligibility-requirements %}
-        <li>{{ item }}</li>
+      {% for s in page.specialty %}
+        <li>{{ s }}</li>
       {% endfor %}
     </ul>
-
-    {% if page.clinical-hours %}
-      <h3>Clinical Hours</h3>
-      <ul>
-        {% for item in page.clinical-hours %}
-          <li>{{ item }}</li>
-        {% endfor %}
-      </ul>
     {% endif %}
 
+    {% if page.eligibility-requirements %}
+    <h2>Eligibility Requirements</h2>
+    <ul>
+      {% for r in page.eligibility-requirements %}
+        <li>{{ r }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.clinical-hours %}
+    <h2>Clinical Hours</h2>
+    <ul>
+      {% for ch in page.clinical-hours %}
+        <li>{{ ch }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if page.exam-format-and-duration %}
     <h2>Exam Format and Duration</h2>
     <ul>
-      {% for item in page.exam-format-and-duration %}
-        {% if item contains 'pass rate' %}
-          <li><strong>Pass Rate:</strong>
-            <ul>
-              {% for rate in page.exam-format-and-duration['pass rate'] %}
-                <li>{{ rate }}</li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% else %}
-          <li>{{ item }}</li>
-        {% endif %}
+      {% for e in page.exam-format-and-duration %}
+        <li>{{ e }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
 
+    {% if page.renewal-cycle-and-methods %}
     <h2>Renewal Cycle and Methods</h2>
+    <p><strong>Cycle:</strong> {{ page.renewal-cycle-and-methods.cycle }}</p>
     <ul>
-      {% for item in page.renewal-cycle-and-methods %}
-        {% if item contains 'Pathway' %}
-          <li><strong>{{ item | split: ':' | first }}</strong>:
-            <ul>
-              {% assign path = item | split: ':' | last | strip %}
-              {% if path != '' %}
-                <li>{{ path }}</li>
-              {% endif %}
-            </ul>
-          </li>
-        {% else %}
-          <li>{{ item }}</li>
-        {% endif %}
+      {% for method in page.renewal-cycle-and-methods.pathways %}
+        <li><strong>{{ method.title }}</strong>: {{ method.details }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
 
+    {% if page.ce-requirements %}
     <h2>Continuing Education (CE) Requirements</h2>
-    {% for req in page.ce-requirements %}
-      <p>{{ req }}</p>
-    {% endfor %}
+    <p>{{ page.ce-requirements.total }}</p>
+    <ul>
+      {% for c in page.ce-requirements.breakdown %}
+        <li>{{ c }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
+    {% if page.fees %}
     <h2>Fees</h2>
     <ul>
-      {% for item in page.fees %}
-        <li><strong>{{ item[0] }}:</strong> {{ item[1] }}</li>
+      {% for f in page.fees %}
+        <li>{{ f }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
 
+    {% if page.key-deadlines %}
     <h2>Key Deadlines</h2>
     <ul>
-      {% for item in page.key-deadlines %}
-        <li>{{ item }}</li>
+      {% for d in page.key-deadlines %}
+        <li>{{ d }}</li>
       {% endfor %}
     </ul>
+    {% endif %}
 
-    <p>
-      <a href="{{ page.link }}" target="_blank" rel="noopener">
-        View Official CCRN Certification Page →
-      </a>
-    </p>
-
-    <footer>
-      &copy; {{ site.title }} {{ site.time | date: '%Y' }}
-    </footer>
   </div>
+
+  <footer>
+    <p>&copy; {{ "now" | date: "%Y" }} Nursing Certifications</p>
+  </footer>
+
 </body>
 </html>
