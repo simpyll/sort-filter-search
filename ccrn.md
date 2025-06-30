@@ -39,13 +39,13 @@ renewal-cycle-and-methods:
     - title: Tele-Critical Care Pathway
       details: 1,750 tele/direct care hours in 2 years (875 in last year)
 
-ce-requirements:
-  total: "100 Synergy CERPs"
+continuing-education:
+  total: 100 Synergy CERPs
   breakdown:
-    - "60 Category A (Clinical)"
-    - "10 Category B (Leadership)"
-    - "10 Category C (Professional)"
-    - "20 elective from any category"
+    - 60 Category A (Clinical)
+    - 10 Category B (Leadership)
+    - 10 Category C (Professional)
+    - 20 elective from any category
 
 fees:
   - "Initial Exam: $255 (AACN member) / $370 (non-member)"
