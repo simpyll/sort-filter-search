@@ -121,7 +121,14 @@
 <details open>
   <summary><i class="fas fa-graduation-cap"></i> Continuing Education (CE) Requirements</summary>
   <ul>
-    {% for line in page.ce-requirements %}<li>{{ line }}</li>{% endfor %}
+    <li><strong>Total:</strong> {{ page.continuing-education.total }}</li>
+    <li><strong>Breakdown:</strong>
+      <ul>
+        {% for item in page.continuing-education.breakdown %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </li>
   </ul>
 </details>
 
